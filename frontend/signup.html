@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteStore | Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main Container - Full Width */
+        .main-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 100px);
+        }
+        /* Signup Box - Full Width */
+        .signup-card {
+            width: 100%;
+            max-width: 100%;
+            background: white;
+            border-radius: 0;
+            padding: 3rem 5%;
+            box-shadow: none;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .signup-card h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .signup-card h2 i {
+            color: #764ba2;
+            margin-right: 10px;
+        }
+
+        .input-group {
+            max-width: 500px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(118,75,162,0.1);
+        }
+
+        .signup-btn {
+            display: block;
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+        }
+
+        .message {
+            max-width: 500px;
+            margin: 1rem auto 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+   
+        
+         .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 5% 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #764ba2;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #764ba2;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #aaa;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+            
+            .hero-left h1 {
+                font-size: 2rem;
+            }
+        }
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .signup-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .signup-card h2 {
+                font-size: 1.8rem;
+            }
+            
+            .input-group {
+                max-width: 100%;
+            }
+            
+            .signup-btn {
+                max-width: 100%;
+            }
+            
+            .message {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main-container">
+        <div class="signup-card">
+            <h2><i class="fas fa-user-plus"></i> Signup</h2>
+            
+            <div class="input-group">
+                <label><i class="fas fa-user"></i> Username</label>
+                <input type="text" id="signupUsername" placeholder="Enter username">
+            </div>
+            
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="signupPassword" placeholder="Enter password">
+            </div>
+            
+            <div class="input-group">
+                <label><i class="fas fa-check-circle"></i> Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password">
+            </div>
+            
+            <button class="signup-btn" onclick="signup()">
+                <i class="fas fa-user-plus"></i> Create Account
+            </button>
+            
+            <div id="signupMessage" class="message"></div>
+        </div>
+    </div>
+
+     <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-store"></i> EliteStore</h3>
+                <p>Your premier destination for luxury shopping. Quality products, exceptional service.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p>Privacy Policy</p>
+                <p>Terms & Conditions</p>
+                <p>Shipping Info</p>
+                <p>Returns & Exchange</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                <p><i class="fas fa-envelope"></i> info@elitestore.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EliteStore. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #764ba2;"></i> for professional e-commerce</p>
+        </div>
+    </footer>
+
+    <script>
+        window.signup = function() {
+            const username = document.getElementById('signupUsername').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (!username || !password) {
+                showMessage('Please fill all fields!', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match!', 'error');
+                return;
+            }
+            
+            if (password.length < 3) {
+                showMessage('Password must be at least 3 characters!', 'error');
+                return;
+            }
+            
+            fetch("http://localhost:5000/signup", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username: username, password: password })
+            })
+            .then(res => res.text())
+            .then(data => {
+                if (data === "User created" || data.includes("success")) {
+                    showMessage('Account created successfully!', 'success');
+                    document.getElementById('signupUsername').value = '';
+                    document.getElementById('signupPassword').value = '';
+                    document.getElementById('confirmPassword').value = '';
+                    
+                    setTimeout(() => {
+                        localStorage.setItem("userId", username);
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    showMessage(data, 'error');
+                }
+            })
+            .catch(err => {
+                showMessage('Error connecting to server!', 'error');
+                console.error(err);
+            });
+        }
+
+        function showMessage(message, type) {
+            const element = document.getElementById('signupMessage');
+            element.textContent = message;
+            element.className = `message ${type}`;
+            
+            setTimeout(() => {
+                element.className = 'message';
+                element.textContent = '';
+            }, 3000);
+        }
+    </script>
+</body>
